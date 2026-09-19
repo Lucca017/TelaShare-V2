@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: telashare-v4
+    name: telashare-v3
     runtime: node
     buildCommand: npm install
     startCommand: node server.js

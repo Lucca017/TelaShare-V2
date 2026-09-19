@@ -1,24 +1,27 @@
-TELASHARE V4
+TELASHARE V2.0 — INTERFACE MODERNA
 
-NOVO:
-- Interface modernizada.
-- Reconexão automática da sinalização Socket.IO.
-- FPS e bitrate via WebRTC getStats().
-- Estado da conexão.
-- Tela cheia.
-- Sala com senha opcional.
-- Contador de espectadores.
-- Áudio do sistema opcional.
-- 720p30, 1080p30 e 1080p60.
-- Compatível com o projeto atual no Render.
+Substitua os arquivos do projeto no GitHub/Render por estes arquivos.
 
-ATUALIZAÇÃO:
-1. Extraia o ZIP.
-2. Substitua index.html e server.js no repositório atual.
-3. Opcionalmente substitua package.json e render.yaml.
-4. Faça Commit changes.
-5. Aguarde o Render publicar automaticamente.
+Mantido:
+- WebRTC / Socket.IO
+- Salas e senha
+- 720p30 / 1080p30 / 1080p60
+- Áudio do sistema
+- Estatísticas
+- Múltiplos espectadores
+- TURN por variáveis de ambiente
 
-TURN:
-A V4 está preparada para receber configuração TURN, mas não inclui credenciais fixas.
-STUN continua ativo. Se uma conexão direta falhar, a interface informa que TURN pode ser necessário.
+Render Environment:
+TURN_URLS
+TURN_USERNAME
+TURN_CREDENTIAL
+
+Novo:
+- Interface redesenhada.
+- Área Telas / Janelas na coluna esquerda.
+- Quando aberto no Desktop compatível, as fontes aparecem com miniaturas.
+- No navegador comum, o seletor nativo aparece ao iniciar.
+- Prévia local mutada sem mutar o áudio enviado ao espectador.
+
+IMPORTANTE:
+Não coloque credenciais TURN dentro do index.html.

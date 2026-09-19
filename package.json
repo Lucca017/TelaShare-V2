@@ -1,7 +1,8 @@
 {
-  "name": "telashare-v4-1",
-  "version": "4.1.0",
+  "name": "telashare-v2-modern",
+  "version": "2.0.0",
   "private": true,
+  "description": "TelaShare V2.0 - interface moderna + WebRTC + TURN",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
