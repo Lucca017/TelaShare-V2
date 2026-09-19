@@ -1,0 +1,25 @@
+TELASHARE V4.1 — CONFIGURAR TURN NO RENDER
+
+A aplicação já está pronta para TURN. Você só precisa obter uma credencial TURN.
+
+No Render, abra seu Web Service -> Environment e crie:
+
+TURN_URLS
+turn:global.relay.metered.ca:80,turn:global.relay.metered.ca:80?transport=tcp,turn:global.relay.metered.ca:443,turns:global.relay.metered.ca:443?transport=tcp
+
+TURN_USERNAME
+<username fornecido pelo seu provedor TURN>
+
+TURN_CREDENTIAL
+<password/credential fornecido pelo seu provedor TURN>
+
+Salve as variáveis e faça redeploy.
+
+IMPORTANTE:
+- Não coloque a Secret Key do provedor no index.html.
+- TURN_USERNAME/TURN_CREDENTIAL necessariamente chegam ao navegador durante WebRTC; use credenciais
+  limitadas/rotativas do provedor quando possível.
+- Depois do deploy, a tela do TelaShare mostrará "TURN: ✓ configurado e disponível".
+- Teste novamente usando redes diferentes (por exemplo PC em uma internet e espectador no 4G/5G).
+
+O servidor também expõe /api/ice para que os clientes obtenham a configuração ICE.
