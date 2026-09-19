@@ -1,8 +1,8 @@
 {
   "name": "telashare-v2-modern",
-  "version": "2.4.6",
+  "version": "2.5.0",
   "private": true,
-  "description": "TelaShare V2.4 Pro - troca de fonte, bitrate, diagnóstico, qualidade e painel avançado",
+  "description": "TelaShare V2.5 Desktop Pro",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
