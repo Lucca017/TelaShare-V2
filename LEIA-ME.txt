@@ -1,0 +1,41 @@
+TELASHARE V2 — INTERNET
+
+O QUE MUDOU
+- Código de sala automático.
+- Link de convite para espectador.
+- Suporte a vários espectadores (cada um cria uma conexão WebRTC).
+- 720p30, 1080p30 e 1080p60.
+- Captura opcional de áudio do sistema, quando navegador/Windows suportarem.
+- Preparado para hospedagem HTTPS.
+
+TESTE LOCAL
+1. Instale Node.js 18+.
+2. Execute instalar.bat.
+3. Execute iniciar.bat.
+4. Abra http://localhost:3000.
+
+PARA FUNCIONAR FORA DA SUA REDE
+Você precisa publicar esta pasta em um servidor Node.js com HTTPS.
+Exemplos de serviços compatíveis: Render, Railway, Fly.io ou um VPS.
+Comando de instalação: npm install
+Comando de inicialização: npm start
+Porta: use a variável PORT fornecida pela hospedagem.
+
+Depois de publicado:
+1. Abra o endereço HTTPS no seu PC.
+2. Escolha "Transmitir minha tela".
+3. Clique "Gerar código" e depois "Iniciar".
+4. Copie o link mostrado e envie ao espectador.
+5. O espectador abre o link e clica "Iniciar".
+
+IMPORTANTE SOBRE TURN
+Esta V2 usa STUN público. Muitas conexões funcionam diretamente, mas algumas redes,
+CGNATs/firewalls podem impedir a mídia. Para alta confiabilidade na internet, a próxima
+etapa é adicionar TURN (por exemplo coturn em um VPS ou um provedor TURN).
+Não coloque senha TURN diretamente no HTML público em um projeto definitivo;
+prefira credenciais temporárias geradas pelo servidor.
+
+SEGURANÇA
+- O navegador sempre pede ao transmissor qual tela/janela compartilhar.
+- Ninguém recebe controle remoto do computador.
+- Quem possuir o link/código poderá tentar entrar na sala enquanto ela estiver ativa.
