@@ -1,8 +1,8 @@
 {
   "name": "telashare-v2-modern",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
-  "description": "TelaShare V2.2 - microfone, QR Code, tela cheia, minimizar e indicador P2P/TURN",
+  "description": "TelaShare V2.3 - áudio avançado, qualidade automática, estatísticas e preferências",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
