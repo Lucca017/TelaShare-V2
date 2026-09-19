@@ -7,7 +7,7 @@ const app=express(),server=http.createServer(app);
 const io=new Server(server,{cors:{origin:true,credentials:false}});
 
 app.get('/',(_,res)=>res.sendFile(path.join(__dirname,'index.html')));
-app.get('/health',(_,res)=>res.json({ok:true,app:'TelaShare V2.5.1 Desktop Pro'}));
+app.get('/health',(_,res)=>res.json({ok:true,app:'TelaShare V2.6 Lite'}));
 app.get('/api/qr',async(req,res)=>{try{const text=String(req.query.text||'').slice(0,2048);if(!text)return res.status(400).send('missing text');const png=await QRCode.toBuffer(text,{type:'png',width:300,margin:1});res.type('png').send(png)}catch(e){res.status(500).send('qr error')}});
 app.get('/api/ice',(_,res)=>{
  const iceServers=[
@@ -40,4 +40,4 @@ io.on('connection',s=>{
  s.on('signal',({room,target,data})=>{if(!room||!data)return;target?io.to(target).emit('signal',{from:s.id,data}):s.to(room).emit('signal',{from:s.id,data})});
  s.on('disconnect',()=>{const {room,role}=s.data||{};if(!room)return;if(role==='host'){rooms.delete(room);s.to(room).emit('host-left')}else s.to(room).emit('peer-left',{id:s.id});io.to(room).emit('room-count',Math.max(0,(io.sockets.adapter.rooms.get(room)?.size||0)-1))});
 });
-server.listen(process.env.PORT||3000,'0.0.0.0',()=>console.log('TelaShare V2.5.1 Desktop Pro online'));
+server.listen(process.env.PORT||3000,'0.0.0.0',()=>console.log('TelaShare V2.6 Lite online'));
