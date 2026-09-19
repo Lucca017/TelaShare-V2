@@ -1,22 +1,24 @@
-TelaShare V3
+TELASHARE V4
 
-Novidades:
-- Interface redesenhada.
+NOVO:
+- Interface modernizada.
+- Reconexão automática da sinalização Socket.IO.
+- FPS e bitrate via WebRTC getStats().
+- Estado da conexão.
+- Tela cheia.
 - Sala com senha opcional.
-- Link de convite.
 - Contador de espectadores.
-- Estado da conexão WebRTC.
-- 720p30 / 1080p30 / 1080p60.
 - Áudio do sistema opcional.
-- Vários espectadores.
-- Compatível com Render.
+- 720p30, 1080p30 e 1080p60.
+- Compatível com o projeto atual no Render.
 
-ATUALIZAR O PROJETO ATUAL:
-1. Extraia este ZIP.
-2. No GitHub TelaShare-V2, substitua index.html e server.js.
-3. package.json pode ser substituído também.
-4. Aguarde o redeploy automático do Render.
+ATUALIZAÇÃO:
+1. Extraia o ZIP.
+2. Substitua index.html e server.js no repositório atual.
+3. Opcionalmente substitua package.json e render.yaml.
+4. Faça Commit changes.
+5. Aguarde o Render publicar automaticamente.
 
 TURN:
-Esta versão continua usando STUN. TURN exige um servidor/serviço TURN e credenciais.
-Isso pode ser adicionado depois sem refazer a interface.
+A V4 está preparada para receber configuração TURN, mas não inclui credenciais fixas.
+STUN continua ativo. Se uma conexão direta falhar, a interface informa que TURN pode ser necessário.

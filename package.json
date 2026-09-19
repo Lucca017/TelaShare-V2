@@ -1,8 +1,8 @@
 {
-  "name": "telashare-v3",
-  "version": "3.0.0",
+  "name": "telashare-v4",
+  "version": "4.0.0",
   "private": true,
-  "description": "TelaShare V3 moderno - WebRTC",
+  "description": "TelaShare V4 - compartilhamento WebRTC moderno com reconexao e estatisticas",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
