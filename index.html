@@ -1,82 +1,60 @@
-<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TelaShare V2</title>
-<style>
-:root{font-family:Segoe UI,Arial,sans-serif;color:#eef2ff;background:#090d14}*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at top,#162033,#090d14 55%);min-height:100vh}
-main{max-width:1050px;margin:auto;padding:28px 18px}.head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-h1{font-size:27px;margin:0}.pill{border:1px solid #334155;border-radius:999px;padding:7px 12px;color:#86efac}
-.card{margin-top:20px;background:#101722;border:1px solid #263348;border-radius:18px;padding:18px}
-.grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:12px}label{display:block;font-size:13px;color:#94a3b8;margin-bottom:6px}
-input,select,button{width:100%;min-height:44px;border:1px solid #334155;border-radius:10px;background:#0b111b;color:white;padding:10px 12px;font-size:15px}
-button{font-weight:650;cursor:pointer}.primary{background:#2563eb;border-color:#2563eb}.stop{background:#b91c1c;border-color:#b91c1c}
-.secondary{background:#172033}.buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:13px}
-button:disabled{opacity:.45;cursor:not-allowed}video{display:block;width:100%;aspect-ratio:16/9;background:#020409;border-radius:14px;margin-top:16px;object-fit:contain}
-.info{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;color:#cbd5e1}.hint{font-size:13px;color:#94a3b8;line-height:1.5}
-#invite{margin-top:12px;display:none}.ok{color:#86efac}@media(max-width:720px){.grid,.buttons{grid-template-columns:1fr}}
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TelaShare V3</title><style>
+*{box-sizing:border-box}body{margin:0;background:#070b12;color:#f3f6fb;font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 20% 0,#17223b 0,transparent 35%),radial-gradient(circle at 90% 20%,#10233a 0,transparent 28%);pointer-events:none}
+main{position:relative;max-width:1180px;margin:auto;padding:28px 18px}.brand{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}
+.logo{display:flex;align-items:center;gap:12px}.mark{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#2563eb;font-size:22px;box-shadow:0 10px 30px #2563eb35}
+h1{font-size:25px;margin:0}.sub{color:#8190a7;font-size:13px;margin-top:3px}.pill{border:1px solid #273449;background:#0d1420;padding:8px 13px;border-radius:999px;color:#7ee7ae;font-size:13px}
+.shell{display:grid;grid-template-columns:310px 1fr;gap:16px}.panel{background:#0d131d;border:1px solid #202c3e;border-radius:18px;padding:17px;box-shadow:0 20px 50px #0003}
+.section{margin-bottom:15px}.section:last-child{margin-bottom:0}label{display:block;color:#8d9bb0;font-size:12px;margin:0 0 6px}
+input,select,button{width:100%;min-height:43px;border-radius:10px;border:1px solid #29364a;background:#0a1019;color:#fff;padding:10px 11px;font-size:14px;outline:none}
+input:focus,select:focus{border-color:#3b82f6}button{cursor:pointer;font-weight:650}.primary{background:#2563eb;border-color:#2563eb}.danger{background:#9f1d26;border-color:#9f1d26}.soft{background:#151e2c}
+button:disabled{opacity:.42;cursor:not-allowed}.actions{display:grid;gap:8px}.videoPanel{padding:12px}.screen{position:relative;background:#03060a;border-radius:13px;overflow:hidden;aspect-ratio:16/9;border:1px solid #1d2939}
+video{width:100%;height:100%;object-fit:contain;background:#03060a}.empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#68778d;pointer-events:none}
+.empty b{display:block;color:#9ba8ba;font-size:17px;margin-bottom:5px}.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 4px 2px;color:#8f9caf;font-size:13px;flex-wrap:wrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3ddc84;margin-right:7px}.invite{display:none;margin-top:12px}.copyrow{display:grid;grid-template-columns:1fr 105px;gap:8px}
+.toggle{display:flex;align-items:center;gap:9px;color:#cbd5e1;font-size:13px}.toggle input{width:17px;min-height:auto}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.stat{background:#0a1019;border:1px solid #202c3e;border-radius:10px;padding:10px}.stat small{color:#718096}.stat strong{display:block;margin-top:4px}
+@media(max-width:800px){.shell{grid-template-columns:1fr}.copyrow{grid-template-columns:1fr}.brand{align-items:flex-start}}
 </style></head><body><main>
-<div class="head"><h1>🖥️ TelaShare V2</h1><span class="pill" id="state">Pronto</span></div>
-<section class="card">
-<div class="grid">
-<div><label>Código da sala</label><input id="room" maxlength="32"></div>
-<div><label>Modo</label><select id="role"><option value="host">Transmitir minha tela</option><option value="viewer">Assistir transmissão</option></select></div>
-<div><label>Qualidade</label><select id="quality"><option value="720">720p / 30 FPS</option><option value="1080" selected>1080p / 30 FPS</option><option value="60">1080p / 60 FPS</option></select></div>
-</div>
-<div class="buttons"><button id="generate" class="secondary">Gerar código</button><button id="start" class="primary">Iniciar</button><button id="stop" class="stop" disabled>Parar</button></div>
-<div id="invite"><label>Link para o espectador</label><input id="inviteUrl" readonly><button id="copy" class="secondary" style="margin-top:8px">Copiar link</button></div>
-<video id="video" autoplay playsinline controls></video>
-<div class="info"><span id="status">Gere um código ou informe uma sala.</span><span>Conexões: <b id="count">0</b></span></div>
-<p class="hint">Para acesso pela internet, este projeto precisa ser publicado em um endereço HTTPS. WebRTC tenta conexão direta; em redes restritivas, configure um servidor TURN usando as variáveis indicadas no arquivo LEIA-ME.</p>
-</section></main>
+<div class="brand"><div class="logo"><div class="mark">▣</div><div><h1>TelaShare V3</h1><div class="sub">Compartilhamento rápido e privado</div></div></div><div class="pill" id="state">● Pronto</div></div>
+<div class="shell">
+<aside class="panel">
+<div class="section"><label>MODO</label><select id="role"><option value="host">Transmitir minha tela</option><option value="viewer">Assistir transmissão</option></select></div>
+<div class="section"><label>CÓDIGO DA SALA</label><input id="room" maxlength="32"></div>
+<div class="section"><label>SENHA DA SALA (OPCIONAL)</label><input id="password" type="password" maxlength="64" placeholder="Deixe vazio para sala aberta"></div>
+<div class="section" id="qualityWrap"><label>QUALIDADE</label><select id="quality"><option value="720">720p • 30 FPS</option><option value="1080">1080p • 30 FPS</option><option value="60" selected>1080p • 60 FPS</option></select></div>
+<div class="section" id="audioWrap"><label class="toggle"><input id="audio" type="checkbox" checked> Tentar compartilhar áudio do sistema</label></div>
+<div class="actions"><button class="soft" id="generate">↻ Gerar novo código</button><button class="primary" id="start">▶ Iniciar</button><button class="danger" id="stop" disabled>■ Encerrar</button></div>
+<div class="invite" id="invite"><label>LINK DO ESPECTADOR</label><div class="copyrow"><input id="inviteUrl" readonly><button class="soft" id="copy">Copiar</button></div></div>
+<div class="stats"><div class="stat"><small>Espectadores</small><strong id="count">0</strong></div><div class="stat"><small>Conexão</small><strong id="conn">—</strong></div></div>
+</aside>
+<section class="panel videoPanel"><div class="screen"><video id="video" autoplay playsinline controls></video><div class="empty" id="empty"><div><b>Nenhuma transmissão ativa</b>Inicie ou entre em uma sala</div></div></div>
+<div class="bar"><span><span class="dot"></span><span id="status">Sistema pronto</span></span><span id="qualityLabel">1080p • 60 FPS</span></div></section>
+</div></main>
 <script src="/socket.io/socket.io.js"></script><script>
-const $=id=>document.getElementById(id), socket=io();
-const roomEl=$('room'),roleEl=$('role'),qualityEl=$('quality'),video=$('video'),statusEl=$('status'),stateEl=$('state');
-let room='',role='',stream=null, peers=new Map();
-
-const qs=new URLSearchParams(location.search);
-if(qs.get('room')){roomEl.value=qs.get('room').toUpperCase();roleEl.value='viewer';}
-function randomRoom(){return 'TS-'+Math.random().toString(36).slice(2,8).toUpperCase();}
-if(!roomEl.value)roomEl.value=randomRoom();
-function rtcConfig(){
-  const ice=[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}];
-  return {iceServers:ice};
-}
-function makePeer(id){
-  if(peers.has(id)) return peers.get(id);
-  const pc=new RTCPeerConnection(rtcConfig());
-  pc.onicecandidate=e=>{if(e.candidate)socket.emit('signal',{room,target:id,data:{candidate:e.candidate}})};
-  pc.ontrack=e=>{video.srcObject=e.streams[0];statusEl.textContent='Recebendo transmissão.';stateEl.textContent='Conectado'};
-  pc.onconnectionstatechange=()=>{if(['failed','closed','disconnected'].includes(pc.connectionState)){peers.delete(id)}};
-  if(role==='host'&&stream)stream.getTracks().forEach(t=>pc.addTrack(t,stream));
-  peers.set(id,pc);return pc;
-}
-async function sendOffer(id){const pc=makePeer(id);const o=await pc.createOffer();await pc.setLocalDescription(o);socket.emit('signal',{room,target:id,data:{description:pc.localDescription}})}
-$('generate').onclick=()=>roomEl.value=randomRoom();
-$('start').onclick=async()=>{
- room=roomEl.value.trim().replace(/[^A-Z0-9-]/gi,'').toUpperCase();role=roleEl.value;if(!room)return;
- if(role==='host'){
-   const q=qualityEl.value;
-   const v=q==='720'?{width:{ideal:1280},height:{ideal:720},frameRate:{ideal:30,max:30}}:
-     q==='60'?{width:{ideal:1920},height:{ideal:1080},frameRate:{ideal:60,max:60}}:
-     {width:{ideal:1920},height:{ideal:1080},frameRate:{ideal:30,max:30}};
-   try{stream=await navigator.mediaDevices.getDisplayMedia({video:v,audio:true});video.srcObject=stream;stream.getVideoTracks()[0].onended=stopAll}
-   catch(e){statusEl.textContent='Captura cancelada.';return}
-   const link=location.origin+'/?room='+encodeURIComponent(room);$('inviteUrl').value=link;$('invite').style.display='block';
-   statusEl.textContent='Transmitindo. Envie o link ao espectador.';stateEl.textContent='Transmitindo';
- }else{statusEl.textContent='Aguardando o transmissor…';stateEl.textContent='Aguardando'}
- socket.emit('join-room',{room,role});$('start').disabled=true;$('stop').disabled=false;roomEl.disabled=true;roleEl.disabled=true;
-};
-socket.on('peer-ready',async p=>{if(role==='host'&&p.role==='viewer')await sendOffer(p.id)});
-socket.on('signal',async({from,data})=>{
- const pc=makePeer(from);
- try{
-  if(data.description){await pc.setRemoteDescription(data.description);if(data.description.type==='offer'){const a=await pc.createAnswer();await pc.setLocalDescription(a);socket.emit('signal',{room,target:from,data:{description:pc.localDescription}})}}
-  else if(data.candidate)await pc.addIceCandidate(data.candidate);
- }catch(e){statusEl.textContent='Erro WebRTC: '+e.message}
-});
-socket.on('peer-left',({id})=>{if(peers.has(id)){peers.get(id).close();peers.delete(id)}});
+const $=x=>document.getElementById(x),socket=io();let room='',role='',stream=null,peers=new Map();
+const qs=new URLSearchParams(location.search);if(qs.get('room')){$('room').value=qs.get('room').toUpperCase();$('role').value='viewer'}
+function code(){return'TS-'+Math.random().toString(36).slice(2,8).toUpperCase()}if(!$('room').value)$('room').value=code();
+function cfg(){return{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}}
+function uiRole(){let v=$('role').value==='viewer';$('qualityWrap').style.display=v?'none':'block';$('audioWrap').style.display=v?'none':'block';$('generate').style.display=v?'none':'block'}$('role').onchange=uiRole;uiRole();
+function peer(id){if(peers.has(id))return peers.get(id);let p=new RTCPeerConnection(cfg());p.onicecandidate=e=>e.candidate&&socket.emit('signal',{room,target:id,data:{candidate:e.candidate}});
+p.ontrack=e=>{$('video').srcObject=e.streams[0];$('empty').style.display='none';$('status').textContent='Recebendo transmissão';$('state').textContent='● Conectado'};
+p.onconnectionstatechange=()=>{$('conn').textContent=p.connectionState;if(['failed','closed'].includes(p.connectionState))peers.delete(id)};
+if(role==='host'&&stream)stream.getTracks().forEach(t=>p.addTrack(t,stream));peers.set(id,p);return p}
+async function offer(id){let p=peer(id),o=await p.createOffer();await p.setLocalDescription(o);socket.emit('signal',{room,target:id,data:{description:p.localDescription}})}
+$('generate').onclick=()=>$('room').value=code();
+$('quality').onchange=()=>{$('qualityLabel').textContent=$('quality').selectedOptions[0].textContent};
+$('start').onclick=async()=>{room=$('room').value.trim().replace(/[^A-Z0-9-]/gi,'').toUpperCase();role=$('role').value;if(!room)return;
+if(role==='host'){let q=$('quality').value,v=q==='720'?{width:{ideal:1280},height:{ideal:720},frameRate:{ideal:30,max:30}}:q==='60'?{width:{ideal:1920},height:{ideal:1080},frameRate:{ideal:60,max:60}}:{width:{ideal:1920},height:{ideal:1080},frameRate:{ideal:30,max:30}};
+try{stream=await navigator.mediaDevices.getDisplayMedia({video:v,audio:$('audio').checked});$('video').srcObject=stream;$('empty').style.display='none';stream.getVideoTracks()[0].onended=stop}catch(e){$('status').textContent='Captura cancelada';return}
+$('inviteUrl').value=location.origin+'/?room='+encodeURIComponent(room);$('invite').style.display='block';$('status').textContent='Transmitindo sua tela';$('state').textContent='● Transmitindo'}
+else{$('status').textContent='Procurando transmissão…';$('state').textContent='● Conectando'}
+socket.emit('join-room',{room,role,password:$('password').value});$('start').disabled=true;$('stop').disabled=false;$('room').disabled=true;$('role').disabled=true;$('password').disabled=true};
+socket.on('join-error',m=>{alert(m);stop()});socket.on('peer-ready',async p=>{if(role==='host'&&p.role==='viewer')await offer(p.id)});
+socket.on('signal',async({from,data})=>{let p=peer(from);try{if(data.description){await p.setRemoteDescription(data.description);if(data.description.type==='offer'){let a=await p.createAnswer();await p.setLocalDescription(a);socket.emit('signal',{room,target:from,data:{description:p.localDescription}})}}else if(data.candidate)await p.addIceCandidate(data.candidate)}catch(e){$('status').textContent='Falha WebRTC'}});
+socket.on('peer-left',({id})=>{if(peers.has(id)){peers.get(id).close();peers.delete(id)}});socket.on('host-left',()=>{$('status').textContent='O transmissor encerrou a sala';$('state').textContent='● Encerrado'});
 socket.on('room-count',n=>$('count').textContent=n);
-$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('inviteUrl').value);$('copy').textContent='Copiado!';setTimeout(()=>$('copy').textContent='Copiar link',1300)}catch(e){$('inviteUrl').select()}};
-function stopAll(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}peers.forEach(p=>p.close());peers.clear();video.srcObject=null;$('start').disabled=false;$('stop').disabled=true;roomEl.disabled=false;roleEl.disabled=false;stateEl.textContent='Pronto';statusEl.textContent='Transmissão encerrada.'}
-$('stop').onclick=stopAll;
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('inviteUrl').value);$('copy').textContent='Copiado ✓';setTimeout(()=>$('copy').textContent='Copiar',1200)}catch(e){$('inviteUrl').select()}};
+function stop(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}peers.forEach(p=>p.close());peers.clear();$('video').srcObject=null;$('empty').style.display='grid';$('start').disabled=false;$('stop').disabled=true;$('room').disabled=false;$('role').disabled=false;$('password').disabled=false;$('state').textContent='● Pronto';$('status').textContent='Sistema pronto';$('conn').textContent='—';$('count').textContent='0'}$('stop').onclick=stop;
 </script></body></html>
