@@ -1,14 +1,15 @@
 {
   "name": "telashare-v2-modern",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
-  "description": "TelaShare V2.1 - interface compacta + timer + TURN",
+  "description": "TelaShare V2.2 - microfone, QR Code, tela cheia, minimizar e indicador P2P/TURN",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.21.2",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "qrcode": "^1.5.4"
   }
 }
