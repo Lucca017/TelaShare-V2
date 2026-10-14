@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TelaShare V2.6.2 Clean</title><style>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TelaShare V2.6.3 • Assistir corrigido</title><style>
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#06111d;color:#f4f8ff;font:14px "Segoe UI",Arial,sans-serif}body{overflow-x:hidden;background:radial-gradient(circle at 55% 20%,#10263b 0,#081725 36%,#050e18 72%)}button,input,select{font:inherit}.app{max-width:1660px;margin:auto;padding:0 30px 22px}.top{height:88px;display:flex;align-items:center;gap:28px;border-bottom:1px solid #1a3045}.logoMark{width:52px;height:43px;border:4px solid #2495ff;border-radius:7px;position:relative}.logoMark:after{content:"";position:absolute;width:20px;height:4px;background:#2495ff;bottom:-11px;left:12px;border-radius:4px}.brand{min-width:165px}.brand b{font-size:25px}.brand small{display:block;color:#8298b4;margin-top:3px}.nav{display:flex;gap:14px}.navBtn{border:0;background:transparent;color:#d8e4f2;padding:13px 26px;border-radius:10px;font-weight:700}.navBtn.active{background:#0d3976;color:#fff}.turnTop{margin-left:auto;display:flex;align-items:center;gap:10px}.turnDot{width:14px;height:14px;border-radius:50%;background:#f0ad3d;box-shadow:0 0 12px #f0ad3d55}.turnDot.ok{background:#38db7d;box-shadow:0 0 12px #38db7d66}.turnText b{display:block}.turnText small{color:#9cb0c8}.layout{display:grid;grid-template-columns:445px minmax(0,1fr);gap:16px;margin-top:16px}.sidebar{display:flex;flex-direction:column;gap:14px}.card{background:linear-gradient(145deg,#0d1c2c,#0a1724);border:1px solid #1d354d;border-radius:14px;box-shadow:0 10px 28px #0002}.section{padding:22px 26px}.section h2{font-size:18px;margin:0 0 18px}.sourceBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.sourceBtn{height:60px;border:1px solid #29435e;background:#122338;color:#e5edf7;border-radius:11px;font-weight:700}.sourceBtn.on{background:linear-gradient(135deg,#1374f5,#198fff);border-color:#2697ff}
 .sourceGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px;max-height:250px;overflow:auto}
 .sourceCard{border:1px solid #29435e;background:#091522;border-radius:10px;padding:7px;cursor:pointer;color:#dce8f5;text-align:left;min-width:0}
@@ -6,36 +6,79 @@
 .sourceCard img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#02070c;border-radius:7px;margin-bottom:7px}
 .sourceCard span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
 .sourceEmpty{grid-column:1/-1;color:#8298b4;padding:16px 4px;text-align:center;font-size:12px}.qualitySelect,.roomInput,.passwordInput{width:100%;height:48px;border:1px solid #29435e;background:#091522;color:#fff;border-radius:10px;padding:0 16px}.audioLine{display:flex;align-items:center;justify-content:space-between;margin:15px 0;font-size:16px}.switch{appearance:none;width:48px;height:26px;background:#26394e;border-radius:30px;position:relative;cursor:pointer}.switch:before{content:"";position:absolute;width:20px;height:20px;top:3px;left:4px;border-radius:50%;background:white;transition:.18s}.switch:checked{background:#147cf5}.switch:checked:before{left:24px}.roomRow{display:grid;grid-template-columns:1fr 145px;gap:10px}.secondary{border:1px solid #29435e;background:#13263b;color:#e7eef8;border-radius:10px;font-weight:700}.passwordLabel{display:block;color:#91a8c2;margin:16px 0 7px}.start{width:100%;height:54px;border:0;border-radius:10px;background:linear-gradient(135deg,#1476f6,#1598ff);color:#fff;font-size:16px;font-weight:800;margin-top:22px;cursor:pointer}.stop{width:100%;height:46px;border:0;border-radius:10px;background:#a9232c;color:#fff;font-weight:800;margin-top:8px}.main{min-width:0}.previewCard{padding:16px}.previewHead{height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 12px}.previewHead b{font-size:15px}.pill{background:#172b40;border:1px solid #27435e;padding:8px 13px;border-radius:9px}.videoWrap{height:min(500px,52vh);min-height:360px;background:radial-gradient(circle,#10243a,#091725 62%,#07131f);border:1px solid #20394f;border-radius:12px;position:relative;overflow:hidden;display:grid;place-items:center}video{width:100%;height:100%;object-fit:contain;background:#000}.empty{position:absolute;text-align:center;color:#9bb0c8;font-size:16px}.empty:before{content:"▣";display:block;font-size:78px;color:#a7c7e8;margin-bottom:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.stat{min-height:96px;padding:18px 22px;border:1px solid #20394f;border-radius:12px;background:#0a1826}.stat small{color:#91a8c2}.stat b{display:block;font-size:20px;margin-top:7px}.statExtra{display:none}.shareRow{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}.share{padding:16px 18px;border:1px solid #20394f;border-radius:12px;background:#0a1826}.copyrow{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:10px;margin-top:8px}.copyrow input{height:45px;background:#07121e;border:1px solid #29435e;color:#fff;border-radius:9px;padding:0 14px}.copyrow button,.miniBtn{border:1px solid #29435e;background:#14283e;color:#fff;border-radius:9px}.qrLine{display:flex;align-items:center;gap:13px}.qrIcon{font-size:34px}.qrbox{display:none;margin-top:10px;text-align:center}.qrbox img{width:135px;height:135px;background:#fff;padding:6px;border-radius:9px}.footer{display:flex;justify-content:space-between;color:#7890aa;padding:17px 0 0;font-size:12px}.footer .ok{color:#5bdc8b}.hiddenCompat,.sources,.advancedHidden,.floatPanel{display:none!important}.selected{margin-top:10px;color:#8298b4;font-size:11px}.muted{color:#8198b4;font-size:12px}.viewerList{font-size:11px;margin-top:7px}.hint{font-size:10px;color:#7188a4}@media(max-width:1000px){.layout{grid-template-columns:1fr}.videoWrap{min-height:300px}.stats{grid-template-columns:1fr 1fr}.shareRow{grid-template-columns:1fr}.app{padding:0 14px 18px}}
+
+/* V2.6.3: modo de espectador visível e reprodução responsiva */
+.navBtn{cursor:pointer;transition:background .15s,color .15s}.navBtn:hover{background:#173451}.navBtn.active{background:#0d3976}
+.roomLabel{display:block;color:#91a8c2;margin:0 0 9px;font-weight:600}
+.previewActions{display:flex;gap:9px;align-items:center}.previewActions .miniBtn{padding:9px 14px;cursor:pointer}
+.statusMsg{padding:13px 16px;margin-top:12px;background:#0e2336;border:1px solid #244661;color:#b7d2ef;border-radius:10px;min-height:43px}
+.videoActivate{position:absolute;z-index:4;padding:14px 22px;border:1px solid #4baaff;border-radius:12px;background:#1377de;color:white;font-weight:800;cursor:pointer}
+.videoActivate[hidden]{display:none!important}.watchMode .videoWrap{min-height:400px}.watchMode .videoWrap video{object-fit:contain}
+.watchMode .start{background:linear-gradient(135deg,#137fe9,#1392e8)}
+.nav{flex-wrap:wrap}.navBtn{white-space:nowrap}.roomRow{grid-template-columns:1fr 145px}
+@media(max-width:780px){.top{height:auto;min-height:88px;flex-wrap:wrap;padding:15px 0;gap:12px}.turnTop{margin-left:0}.nav{order:3;width:100%}.navBtn{flex:1}.layout{grid-template-columns:1fr}.section{padding:18px}.previewHead{height:auto;min-height:46px;gap:8px;flex-wrap:wrap}.previewActions .pill{font-size:11px}.videoWrap{height:42vh;min-height:250px}.watchMode .videoWrap{min-height:260px}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:11px;min-height:85px}.stat b{font-size:15px}.app{padding:0 12px 16px}}
+@media(max-width:480px){.brand b{font-size:21px}.turnTop{font-size:11px}.roomRow{grid-template-columns:1fr}.roomRow #newRoom{height:42px}.stats{gap:7px}.stat small{font-size:10px}}
 </style></head><body>
 <div class="app">
 <header class="top">
- <div class="logoMark"></div><div class="brand"><b>TelaShare</b><small>v2.6.2 Lite</small></div>
- <nav class="nav"><button class="navBtn active">☷ &nbsp; Transmitir</button><button class="navBtn">⚙ &nbsp; Configurações</button></nav>
+ <div class="logoMark"></div><div class="brand"><b>TelaShare</b><small>v2.6.3 Lite</small></div>
+ <nav class="nav" aria-label="Modo de uso"><button class="navBtn active" id="modeHost" type="button">▣ &nbsp; Transmitir</button><button class="navBtn" id="modeViewer" type="button">▶ &nbsp; Assistir</button></nav>
  <div class="turnTop"><span class="turnDot" id="turnDot"></span><div class="turnText"><b id="turnTopText">TURN verificando</b><small id="turnTopSub">Conexão</small></div></div>
 </header>
 <div class="layout">
  <aside class="sidebar">
-  <section class="card section sourceSection"><h2>1. Escolher o que transmitir</h2><div class="sourceBtns"><button class="sourceBtn on tab" data-type="screen">▣ &nbsp; Monitores</button><button class="sourceBtn tab" data-type="window">▤ &nbsp; Janelas</button></div><div class="sourceGrid" id="sourceGrid"><div class="sourceEmpty">Carregando monitores...</div></div><div class="selected" id="selected">Fonte: automática / seletor do sistema</div><div class="sources" id="sources"></div></section>
+  <section class="card section sourceSection" id="sourceSection"><h2>1. Escolher o que transmitir</h2><div class="sourceBtns"><button class="sourceBtn on tab" data-type="screen">▣ &nbsp; Monitores</button><button class="sourceBtn tab" data-type="window">▤ &nbsp; Janelas</button></div><div class="sourceGrid" id="sourceGrid"><div class="sourceEmpty">Carregando monitores...</div></div><div class="selected" id="selected">Fonte: automática / seletor do sistema</div><div class="sources" id="sources"></div></section>
   <section class="card section hostOnly"><h2>2. Qualidade</h2><select class="qualitySelect" id="quality"><option value="720p30">▣ &nbsp; 720p - 30 FPS</option><option value="720p60">▣ &nbsp; 720p - 60 FPS</option><option value="1080p30">▣ &nbsp; 1080p - 30 FPS</option><option value="1080p60">▣ &nbsp; 1080p - 60 FPS</option><option value="1440p30">▣ &nbsp; 1440p - 30 FPS</option><option value="1440p60" selected>▣ &nbsp; 1440p - 60 FPS</option><option value="2160p30">▣ &nbsp; 4K - 30 FPS</option><option value="2160p60">▣ &nbsp; 4K - 60 FPS</option></select></section>
   <section class="card section hostOnly"><h2>3. Áudio</h2><div class="audioLine"><span>🔊 &nbsp; Áudio do sistema</span><input class="switch" id="audio" type="checkbox" checked></div><div class="audioLine"><span>🎙 &nbsp; Microfone</span><input class="switch" id="microphone" type="checkbox"></div></section>
-  <section class="card section"><h2>4. Sala</h2><div class="roomRow"><input class="roomInput" id="room"><button class="secondary" id="newRoom">⟳ &nbsp; Gerar nova</button></div><label class="passwordLabel">🔒 &nbsp; Senha (opcional)</label><input class="passwordInput" id="password" type="password" placeholder="Digite uma senha..."><button class="start" id="start">▶ &nbsp; Iniciar transmissão</button><button class="stop" id="stop" disabled>■ Encerrar</button></section>
+  <section class="card section"><h2 id="roomHeading">4. Sala</h2><label class="roomLabel" id="roomLabel" for="room">Código da sala</label><div class="roomRow"><input class="roomInput" id="room" autocomplete="off" spellcheck="false"><button class="secondary" id="newRoom">⟳ &nbsp; Gerar nova</button></div><label class="passwordLabel">🔒 &nbsp; Senha (opcional)</label><input class="passwordInput" id="password" type="password" placeholder="Digite uma senha..."><button class="start" id="start">▶ &nbsp; Iniciar transmissão</button><button class="stop" id="stop" disabled>■ Encerrar</button></section>
   <div class="hiddenCompat"><select id="role"><option value="host" selected>Transmitir minha tela</option><option value="viewer">Assistir transmissão</option></select><select id="micDevice"><option value="">Padrão do sistema</option></select><button id="modeGame"></button><button id="modeWork"></button><input id="sysVol" value="100"><span id="sysVolLabel"></span><i id="sysMeter"></i><input id="micVol" value="100"><span id="micVolLabel"></span><i id="micMeter"></i><input id="micMute" type="checkbox"><input id="minimizeStart" type="checkbox" checked><input id="mutePreview" type="checkbox" checked><input id="autoQuality" type="checkbox" checked><select id="resPro"><option value="2560x1440" selected></option></select><select id="fpsPro"><option value="60" selected></option></select><select id="bitratePro"><option value="0" selected></option></select><span id="qualityState"></span><button id="changeSource"></button><button id="compactBtn"></button><button id="diagBtn"></button><div id="diagBox"></div></div>
   <div id="turn" class="hiddenCompat">TURN: verificando…</div>
  </aside>
  <main class="main">
   <section class="card previewCard">
-   <div class="previewHead"><b>▣ &nbsp; Prévia da transmissão</b><span class="pill" id="qLabel">1440p • 60 FPS</span><button class="hiddenCompat" id="fullscreen"></button></div>
-   <div class="videoWrap"><div class="empty" id="empty">Prévia da sua tela<br><span class="muted">Clique em “Iniciar transmissão” para começar</span></div><video id="video" autoplay playsinline></video></div>
+   <div class="previewHead"><b id="previewTitle">▣ &nbsp; Prévia da transmissão</b><div class="previewActions"><span class="pill" id="qLabel">1440p • 60 FPS</span><button class="miniBtn" id="fullscreen" type="button" style="display:none" aria-label="Tela cheia">⛶ Tela cheia</button></div></div>
+   <div class="videoWrap"><div class="empty" id="empty">Prévia da sua tela<br><span class="muted">Clique em “Iniciar transmissão” para começar</span></div><video id="video" autoplay playsinline></video><button id="playVideo" class="videoActivate" hidden type="button">▶ Ativar vídeo e som</button></div>
    <div class="stats"><div class="stat"><small>👥 &nbsp; Espectadores</small><b id="count">0</b></div><div class="stat"><small>▥ &nbsp; Conexão</small><b id="state">idle</b><span class="hint" id="network">Aguardando transmissão</span></div><div class="stat"><small>◷ &nbsp; Tempo online</small><b id="timer">00:00:00</b></div><div class="stat statExtra"><small>FPS</small><b id="fps">0</b></div><div class="stat statExtra"><small>BITRATE</small><b id="bitrate">0 kbps</b></div><div class="stat statExtra"><small>LATÊNCIA</small><b id="latency">-- ms</b><span id="loss"></span></div></div>
   </section>
-  <div class="shareRow cleanShare"><div class="share"><b>🔗 &nbsp; Link da sala</b><div class="copyrow"><input id="link" readonly><button id="copy">▣ &nbsp; Copiar</button></div><div class="viewerList" id="viewerList"></div></div><div class="hiddenCompat"><button id="qrBtn"></button><div id="qrbox"><img id="qr"></div><div id="roomInfo"></div></div></div>
-  <div class="footer"><span>TelaShare v2.6.2 Lite &nbsp; • &nbsp; Simples. Leve. Eficiente.</span><span><b class="ok">●</b> Servidor online &nbsp; | &nbsp; TURN OK</span></div>
-  <div class="hiddenCompat" id="status">Sistema pronto</div>
+  <div class="shareRow cleanShare" id="shareSection"><div class="share"><b>🔗 &nbsp; Link da sala</b><div class="copyrow"><input id="link" readonly><button id="copy">▣ &nbsp; Copiar</button></div><div class="viewerList" id="viewerList"></div></div><div class="hiddenCompat"><button id="qrBtn"></button><div id="qrbox"><img id="qr"></div><div id="roomInfo"></div></div></div>
+  <div class="footer"><span>TelaShare v2.6.3 Lite &nbsp; • &nbsp; Simples. Leve. Eficiente.</span><span id="server">● Conectando</span></div>
+  <div class="statusMsg" id="status" role="status" aria-live="polite">Sistema pronto</div>
  </main>
 </div></div>
 <div class="floatPanel" id="floatPanel"><button id="floatMic"></button><button id="floatAudio"></button><button id="floatSource"></button><button id="floatViewers"><span id="floatCount">0</span></button><button id="floatStop"></button></div>
 <script src="/socket.io/socket.io.js"></script><script>
-const $=id=>document.getElementById(id),socket=io();let room='',role='',stream=null,peers=new Map(),iceServers=[],allSources=[],sourceType='screen',selectedId=null,statsTimer=null,timerTick=null,startAt=0,lastBytes=0,lastTs=0,micStream=null,audioCtx=null,sysGain=null,micGain=null,meterTimer=null,currentSourceId=null,viewerJoinedAt=new Map();
+const $=id=>document.getElementById(id),socket=io();
+let room='',role='',stream=null,peers=new Map(),iceServers=[],allSources=[],sourceType='screen',selectedId=null,statsTimer=null,timerTick=null,startAt=0,lastBytes=0,lastTs=0,micStream=null,audioCtx=null,sysGain=null,micGain=null,meterTimer=null,currentSourceId=null,viewerJoinedAt=new Map(),analysers=[],active=false,joining=false;
+const initialParams=new URLSearchParams(location.search);
+const initialWatch=initialParams.has('room') && initialParams.get('mode')!=='host';
+function roomCode(v){
+ v=String(v||'').trim();
+ if(/^https?:\/\//i.test(v))try{v=new URL(v).searchParams.get('room')||''}catch(e){}
+ return v.replace(/[^a-z0-9-]/gi,'').slice(0,32).toUpperCase();
+}
+function setMode(next){
+ const watcher=next==='viewer';
+ if(active||joining)stop('Sessão encerrada ao trocar o modo.');
+ role=watcher?'viewer':'host';$('role').value=role;
+ document.body.classList.toggle('watchMode',watcher);
+ $('modeHost').classList.toggle('active',!watcher);$('modeViewer').classList.toggle('active',watcher);
+ document.querySelectorAll('.hostOnly').forEach(x=>x.style.display=watcher?'none':'');
+ $('sourceSection').style.display=watcher?'none':'';
+ $('shareSection').style.display=watcher?'none':'';
+ $('start').textContent=watcher?'▶  Assistir transmissão':'▶  Iniciar transmissão';
+ $('roomHeading').textContent=watcher?'2. Entrar na transmissão':'4. Sala';
+ $('roomLabel').textContent=watcher?'Código ou link da sala':'Código da sala';
+ $('room').placeholder=watcher?'Cole o código ou o link recebido':'Código da transmissão';
+ $('newRoom').style.display=watcher?'none':'';
+ $('previewTitle').textContent=watcher?'▶  Assistindo transmissão':'▣  Prévia da transmissão';
+ $('qLabel').style.display=watcher?'none':'';
+ $('fullscreen').style.display=watcher?'inline-flex':'none';
+ $('video').controls=watcher;$('video').muted=!watcher;
+ $('video').srcObject=null;$('empty').style.display='block';
+ $('empty').innerHTML=watcher?'Aguardando vídeo<br><span class="muted">Digite o código e clique em Assistir transmissão</span>':'Prévia da sua tela<br><span class="muted">Clique em Iniciar transmissão para começar</span>';
+ $('playVideo').hidden=true;
+ $('status').textContent=watcher?'Digite o código da sala ou cole o link para assistir.':'Pronto para transmitir.';
+}
 
 async function copyViewerLinkStable(){
  const input=$('link'),text=input.value;
@@ -48,12 +91,15 @@ async function copyViewerLinkStable(){
  const b=$('copy'),old=b.textContent;b.textContent=ok?'✓ Copiado':'Ctrl+C';
  setTimeout(()=>b.textContent=old,1300);
 }
-function code(){return 'TS-'+Math.random().toString(36).slice(2,8).toUpperCase()}function link(){return location.origin+'/?room='+encodeURIComponent($('room').value)}
-$('room').value=new URLSearchParams(location.search).get('room')||code();$('link').value=link();$('roomInfo').textContent=$('room').value;
-$('room').oninput=()=>{$('link').value=link();$('roomInfo').textContent=$('room').value};
+function code(){return 'TS-'+Math.random().toString(36).slice(2,8).toUpperCase()}function link(){return location.origin+'/?room='+encodeURIComponent(roomCode($('room').value))+'&mode=viewer'}
+$('room').value=roomCode(initialParams.get('room'))||code();$('link').value=link();$('roomInfo').textContent=$('room').value;
+$('room').oninput=()=>{$('link').value=link();$('roomInfo').textContent=roomCode($('room').value)};
 $('copy').onclick=copyViewerLinkStable;
 $('quality').onchange=()=>$('qLabel').textContent=$('quality').selectedOptions[0].textContent;
-$('role').onchange=()=>document.querySelectorAll('.hostOnly').forEach(x=>x.style.display=$('role').value==='viewer'?'none':'');
+$('role').onchange=()=>setMode($('role').value);
+$('modeHost').onclick=()=>setMode('host');
+$('modeViewer').onclick=()=>setMode('viewer');
+$('playVideo').onclick=async()=>{try{$('video').muted=false;await $('video').play();$('playVideo').hidden=true;$('status').textContent='Reproduzindo transmissão com áudio.'}catch(e){$('status').textContent='Não foi possível iniciar a reprodução: '+e.message}};
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');sourceType=b.dataset.type;renderSources()});
 async function loadSources(){if(!window.TSDesktop?.sources){$('sources').innerHTML='<div class="muted">No navegador, o seletor de tela/janela será aberto ao iniciar.</div>';return}allSources=await window.TSDesktop.sources();renderSources()}
 function renderSources(){if(!allSources.length)return;let a=allSources.filter(x=>x.type===sourceType);$('sources').innerHTML='';a.forEach(s=>{let d=document.createElement('div');d.className='src'+(s.id===selectedId?' on':'');d.innerHTML=(s.thumbnail||s.thumb?'<img src="'+(s.thumbnail||s.thumb)+'">':'<div style="aspect-ratio:16/9"></div>')+'<div>'+s.name.replace(/</g,'&lt;')+'</div>';d.onclick=async()=>{selectedId=s.id;await window.TSDesktop.select(s.id);$('selected').textContent='Fonte: '+s.name;renderSources()};$('sources').appendChild(d)})}
@@ -81,7 +127,7 @@ function savePrefs(){const o={};prefIds.forEach(id=>{const e=$(id);if(e)o[id]=e.
 function loadPrefs(){try{const o=JSON.parse(localStorage.getItem('ts23prefs')||'{}');prefIds.forEach(id=>{const e=$(id);if(e&&o[id]!==undefined){if(e.type==='checkbox')e.checked=!!o[id];else e.value=o[id]}})}catch(e){}}
 function startMeters(sys,mic){
  clearInterval(meterTimer);const items=[[sys,'sysMeter'],[mic,'micMeter']].filter(x=>x[0]);
- const analysers=items.map(([t,id])=>{const a=audioCtx.createAnalyser();a.fftSize=256;audioCtx.createMediaStreamSource(new MediaStream([t])).connect(a);return[a,id,new Uint8Array(a.frequencyBinCount)]});
+ analysers=items.map(([t,id])=>{const a=audioCtx.createAnalyser();a.fftSize=256;audioCtx.createMediaStreamSource(new MediaStream([t])).connect(a);return[a,id,new Uint8Array(a.frequencyBinCount)]});
  meterTimer=setInterval(()=>analysers.forEach(([a,id,d])=>{a.getByteFrequencyData(d);const avg=d.reduce((x,y)=>x+y,0)/d.length;$(id).style.width=Math.min(100,avg/1.4)+'%'}),250)
 }
 
@@ -187,24 +233,125 @@ async function updateNetworkType(p){
  }catch(e){}
 }
 
-function peer(id){if(peers.has(id))return peers.get(id);let p=new RTCPeerConnection({iceServers});p.onicecandidate=e=>e.candidate&&socket.emit('signal',{room,target:id,data:{candidate:e.candidate}});p.onconnectionstatechange=()=>{$('state').textContent=p.connectionState;if(p.connectionState==='connected')updateNetworkType(p);if(p.connectionState==='failed')$('status').textContent='Conexão falhou — confira ICE/TURN'};p.ontrack=e=>{if(role==='viewer'){$('video').srcObject=e.streams[0];$('empty').style.display='none'}};if(role==='host'&&stream)stream.getTracks().forEach(t=>p.addTrack(t,stream));peers.set(id,p);return p}
-async function offer(id){let p=peer(id),o=await p.createOffer();await p.setLocalDescription(o);socket.emit('signal',{room,target:id,data:{description:p.localDescription}})}
-async function start(){
- room=$('room').value.trim().toUpperCase();role=$('role').value;if(!room)return;
- if(role==='host'){
-  try{stream=await buildHostStream();$('video').srcObject=stream;$('video').muted=$('mutePreview').checked;$('video').volume=$('mutePreview').checked?0:1;$('empty').style.display='none';stream.getVideoTracks()[0].onended=stop;if($('minimizeStart').checked&&window.TSDesktop?.minimize)setTimeout(()=>window.TSDesktop.minimize(),450)}catch(e){console.error('Falha ao iniciar captura:',e);$('status').textContent='Falha ao abrir compartilhamento: '+(e?.message||e?.name||'erro desconhecido');return}
- }
- socket.emit('join-room',{room,role,password:$('password').value});startAt=Date.now();clearInterval(timerTick);timerTick=setInterval(()=>{let s=Math.floor((Date.now()-startAt)/1000),h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor((s%3600)/60)).padStart(2,'0'),x=String(s%60).padStart(2,'0');$('timer').textContent=h+':'+m+':'+x},1000);$('start').disabled=true;$('stop').disabled=false;$('status').textContent=role==='host'?'Transmitindo':'Conectando à transmissão';startStats();
+function peer(id){
+ if(peers.has(id))return peers.get(id);
+ const p=new RTCPeerConnection({iceServers});p._pendingIce=[];
+ p.onicecandidate=e=>{if(e.candidate&&socket.connected)socket.emit('signal',{room,target:id,data:{candidate:e.candidate}})};
+ p.onconnectionstatechange=()=>{
+  if(!active)return;
+  $('state').textContent=p.connectionState;
+  if(p.connectionState==='connected'){
+   $('status').textContent=role==='viewer'?'Conectado ao transmissor.':'Espectador conectado.';
+   updateNetworkType(p);
+  }
+  if(p.connectionState==='failed')$('status').textContent='Falha na conexão entre computadores. Verifique as configurações TURN.';
+ };
+ p.ontrack=e=>{
+  if(role!=='viewer')return;
+  const v=$('video');v.srcObject=e.streams?.[0]||new MediaStream([e.track]);
+  v.muted=false;v.controls=true;$('empty').style.display='none';
+  v.play().then(()=>$('playVideo').hidden=true).catch(()=>{$('playVideo').hidden=false;$('status').textContent='Vídeo recebido. Clique em Ativar vídeo e som.'});
+ };
+ if(role==='host'&&stream)stream.getTracks().forEach(t=>p.addTrack(t,stream));
+ peers.set(id,p);return p;
 }
-function stop(){clearInterval(timerTick);$('timer').textContent='00:00:00';if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null}if(meterTimer){clearInterval(meterTimer);meterTimer=null}if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null}sysGain=null;micGain=null;$('sysMeter').style.width='0%';$('micMeter').style.width='0%';peers.forEach(p=>p.close());peers.clear();clearInterval(statsTimer);statsTimer=null;lastBytes=0;lastTs=0;$('video').srcObject=null;$('empty').style.display='block';$('start').disabled=false;$('stop').disabled=true;viewerJoinedAt.clear();renderViewers();$('state').textContent='idle';$('network').textContent='aguardando';$('network').className='hint network';$('fps').textContent='0';$('bitrate').textContent='0 kbps';$('status').textContent='Sistema pronto'}
-async function startStats(){clearInterval(statsTimer);statsTimer=setInterval(async()=>{let p=[...peers.values()][0];if(!p)return;updateNetworkType(p);let st=await p.getStats();st.forEach(r=>{if(r.type==='outbound-rtp'&&r.kind==='video'){if(r.framesPerSecond)$('fps').textContent=Math.round(r.framesPerSecond);if(lastTs){let kbps=Math.max(0,(r.bytesSent-lastBytes)*8/(r.timestamp-lastTs));$('bitrate').textContent=kbps>1000?(kbps/1000).toFixed(1)+' Mbps':Math.round(kbps)+' kbps'}lastBytes=r.bytesSent;lastTs=r.timestamp}})},2000)}
-$('start').onclick=start;$('stop').onclick=stop;
+async function offer(id){const p=peer(id),o=await p.createOffer();await p.setLocalDescription(o);socket.emit('signal',{room,target:id,data:{description:p.localDescription}})}
+function tickTimer(){startAt=Date.now();clearInterval(timerTick);timerTick=setInterval(()=>{const s=Math.floor((Date.now()-startAt)/1000),h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),x=String(s%60).padStart(2,'0');$('timer').textContent=h+':'+m+':'+x},1000)}
+async function start(){
+ if(active||joining)return;
+ room=roomCode($('room').value);role=$('role').value;
+ if(!room){$('status').textContent='Informe um código de sala válido.';return}
+ $('room').value=room;$('link').value=link();
+ joining=true;$('start').disabled=true;
+ if(!socket.connected){joining=false;$('start').disabled=false;$('status').textContent='Servidor desconectado. Verifique sua internet.';return}
+ if(role==='host'){
+  try{
+   stream=await buildHostStream();
+   $('video').srcObject=stream;$('video').muted=true;$('video').controls=false;
+   $('empty').style.display='none';
+   const track=stream.getVideoTracks()[0];if(track)track.onended=()=>{if(active)stop('Compartilhamento de tela encerrado.')};
+  }catch(e){console.error('Falha ao iniciar captura:',e);joining=false;$('start').disabled=false;$('status').textContent='Falha ao compartilhar: '+(e?.message||e?.name||'erro desconhecido');return}
+ }
+ active=true;
+ socket.emit('join-room',{room,role,password:$('password').value});
+ $('status').textContent=role==='host'?'Criando sala...':'Procurando transmissão...';
+}
+function stop(message='Sistema pronto'){
+ const wasActive=active||joining;
+ active=false;joining=false;
+ if(wasActive&&socket.connected)socket.emit('leave-room');
+ clearInterval(timerTick);timerTick=null;$('timer').textContent='00:00:00';
+ if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+ if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null}
+ if(meterTimer){clearInterval(meterTimer);meterTimer=null}
+ analysers=[];
+ if(audioCtx){audioCtx.close().catch(()=>{});audioCtx=null}
+ sysGain=null;micGain=null;$('sysMeter').style.width='0%';$('micMeter').style.width='0%';
+ peers.forEach(p=>p.close());peers.clear();clearInterval(statsTimer);statsTimer=null;lastBytes=0;lastTs=0;
+ $('video').srcObject=null;$('playVideo').hidden=true;$('empty').style.display='block';
+ $('start').disabled=false;$('stop').disabled=true;
+ viewerJoinedAt.clear();renderViewers();$('count').textContent='0';$('state').textContent='Inativo';
+ $('network').textContent='Aguardando';$('network').className='hint network';
+ $('fps').textContent='0';$('bitrate').textContent='0 kbps';$('status').textContent=message;
+}
+function startStats(){clearInterval(statsTimer);statsTimer=setInterval(async()=>{
+ const p=[...peers.values()][0];if(!p||p.signalingState==='closed')return;
+ try{updateNetworkType(p);const st=await p.getStats();st.forEach(r=>{
+  if(r.type==='outbound-rtp'&&r.kind==='video'){
+   if(r.framesPerSecond)$('fps').textContent=Math.round(r.framesPerSecond);
+   if(lastTs){const kbps=Math.max(0,(r.bytesSent-lastBytes)*8/(r.timestamp-lastTs));$('bitrate').textContent=kbps>1000?(kbps/1000).toFixed(1)+' Mbps':Math.round(kbps)+' kbps'}
+   lastBytes=r.bytesSent;lastTs=r.timestamp;
+  }
+ })}catch(e){console.warn('Estatísticas de conexão:',e)}
+},2000)}
+$('start').onclick=start;$('stop').onclick=()=>stop('Sessão encerrada.');
 $('fullscreen').onclick=()=>{const el=document.querySelector('.videoWrap');if(!document.fullscreenElement)el.requestFullscreen?.();else document.exitFullscreen?.()};
 $('qrBtn').onclick=()=>{const box=$('qrbox'),img=$('qr');if(box.style.display==='block'){box.style.display='none';return}img.src='/api/qr?text='+encodeURIComponent($('link').value);box.style.display='block'};
-socket.on('connect',()=>{$('server').textContent='● Conectado'});socket.on('disconnect',()=>{$('server').textContent='● Reconectando'});
-socket.on('join-error',m=>{alert(m);stop()});socket.on('peer-ready',async p=>{if(role==='host'&&p.role==='viewer')await offer(p.id)});
-socket.on('signal',async({from,data})=>{let p=peer(from);try{if(data.description){await p.setRemoteDescription(data.description);if(data.description.type==='offer'){let a=await p.createAnswer();await p.setLocalDescription(a);socket.emit('signal',{room,target:from,data:{description:p.localDescription}})}}else if(data.candidate)await p.addIceCandidate(data.candidate)}catch(e){$('status').textContent='Falha WebRTC'}});
-socket.on('peer-left',({id})=>{peers.get(id)?.close();peers.delete(id)});socket.on('host-left',()=>{$('status').textContent='O transmissor encerrou a sala'});socket.on('room-count',n=>$('count').textContent=n);
+socket.on('connect',()=>{
+ $('server').textContent='● Conectado';
+ if(active){peers.forEach(p=>p.close());peers.clear();viewerJoinedAt.clear();renderViewers();socket.emit('join-room',{room,role,password:$('password').value});$('status').textContent='Reconectando à sala...'}
+});
+socket.on('disconnect',()=>{
+ $('server').textContent='● Reconectando';
+ if(active){peers.forEach(p=>p.close());peers.clear();viewerJoinedAt.clear();renderViewers();$('state').textContent='Reconectando';$('status').textContent='Conexão com o servidor perdida. Reconectando...'}
+});
+socket.on('join-ok',()=>{
+ if(!active)return;
+ joining=false;$('start').disabled=true;$('stop').disabled=false;
+ $('state').textContent='Aguardando conexão';
+ $('status').textContent=role==='host'?'Sala aberta. Compartilhe o link para alguém assistir.':'Conectado à sala. Aguardando vídeo...';
+ tickTimer();startStats();
+ if(role==='host'&&$('minimizeStart').checked&&window.TSDesktop?.minimize)setTimeout(()=>{if(active)window.TSDesktop.minimize()},450);
+});
+socket.on('join-error',m=>stop('Não foi possível entrar na sala: '+String(m)));
+socket.on('peer-ready',async p=>{
+ if(!active||role!=='host'||p.role!=='viewer')return;
+ viewerJoinedAt.set(p.id,Date.now());renderViewers();
+ try{await offer(p.id)}catch(e){$('status').textContent='Erro ao conectar espectador: '+e.message}
+});
+socket.on('signal',async({from,data})=>{
+ if(!active||!data)return;
+ const p=peer(from);
+ try{
+  if(data.description){
+   await p.setRemoteDescription(data.description);
+   for(const candidate of p._pendingIce.splice(0))await p.addIceCandidate(candidate);
+   if(data.description.type==='offer'){
+    const answer=await p.createAnswer();await p.setLocalDescription(answer);
+    socket.emit('signal',{room,target:from,data:{description:p.localDescription}});
+   }
+  }else if(data.candidate){
+   if(p.remoteDescription)await p.addIceCandidate(data.candidate);
+   else p._pendingIce.push(data.candidate);
+  }
+ }catch(e){console.error('Falha WebRTC:',e);$('status').textContent='Falha na comunicação WebRTC: '+e.message}
+});
+socket.on('peer-left',({id})=>{
+ const p=peers.get(id);if(p){p.close();peers.delete(id)}
+ viewerJoinedAt.delete(id);renderViewers();
+});
+socket.on('host-left',()=>{if(role==='viewer'&&active)stop('O transmissor encerrou a sala.')});
+socket.on('room-count',n=>{if(active)$('count').textContent=String(n)});
 $('quality').addEventListener('change',()=>{$('qLabel').textContent=$('quality').selectedOptions[0]?.textContent||'';});
 
 window.addEventListener('beforeunload',()=>{
@@ -215,6 +362,7 @@ window.addEventListener('beforeunload',()=>{
 });
 loadSources();
 loadPrefs();
+setMode(initialWatch?'viewer':'host');
 prefIds.forEach(id=>$(id)?.addEventListener('change',savePrefs));
 $('sysVol').oninput=()=>{$('sysVolLabel').textContent=$('sysVol').value+'%';if(sysGain)sysGain.gain.value=Number($('sysVol').value)/100;savePrefs()};
 $('micVol').oninput=()=>{$('micVolLabel').textContent=$('micVol').value+'%';if(micGain&&!$('micMute').checked)micGain.gain.value=Number($('micVol').value)/100;savePrefs()};
@@ -258,7 +406,7 @@ $('micVolLabel').textContent=$('micVol').value+'%';
 document.addEventListener('visibilitychange',()=>{
  if(document.hidden){
   if(meterTimer){clearInterval(meterTimer);meterTimer=null}
- }else if(stream && analysers?.length && !meterTimer){
+ }else if(stream && analysers.length && !meterTimer){
   meterTimer=setInterval(()=>analysers.forEach(([a,id,d])=>{a.getByteFrequencyData(d);const avg=d.reduce((x,y)=>x+y,0)/d.length;$(id).style.width=Math.min(100,avg/1.4)+'%'}),250)
  }
 });
